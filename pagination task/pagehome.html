@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="pagination.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js" defer></script>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+  
+<script>
+    let headers=["id","name","email-id"];
+
+let headerstr=document.createElement("tr");
+//th codes
+headers.forEach((item)=>{
+    const thelement=document.createElement("th");
+    thelement.setAttribute("scope","col");
+    thelement.innerText=item;
+    headerstr.append(thelement);
+});
+let theadelement=document.createElement("thead");
+theadelement.append(headerstr);
+
+
+let persondetails=[{
+      id: 1,
+      name: "Lura Senger",
+      email: "Xander_Collier@yahoo.com"
+    },
+    {
+      id: 2,
+      name: "Wilburn Weber",
+      email: "Bennett_Kreiger11@yahoo.com"
+    },
+    {
+      id: 3,
+      name: "Tyrique Hahn",
+      email: "Juston.Altenwerth@yahoo.com"
+    },
+    {
+      id: 4,
+      name: "Lenny Bailey",
+      email: "Guiseppe_Hegmann@yahoo.com"
+    },
+    {
+      id: "5",
+      name: "Vladimir Keeling",
+      email: "Louisa_Walsh18@hotmail.com"
+    }];
+
+const tbodyelement=document.createElement("tbody");
+
+
+persondetails.forEach((value)=>{
+    let th2=document.createElement("th");
+    th2.setAttribute("scope","row");
+    th2.innerText=value.id
+    
+    let td1=document.createElement("td");
+    td1.innerText=value.name;
+    
+    let td2=document.createElement("td");
+    td2.innerText=value.email;
+
+    const tr2forbody=document.createElement("tr");
+    tr2forbody.append(th2,td1,td2);
+    tbodyelement.append(tr2forbody);
+})
+
+
+let telement=document.createElement("table");
+telement.style.margin="200px";
+telement.setAttribute("class","table");
+telement.append(theadelement,tbodyelement);
+document.body.append(telement);
+
+
+
+    let divelement=document.createElement("div");
+    divelement.style.display="flex";
+    divelement.style.marginLeft="550px"
+    document.body.append(divelement);
+//home
+    let spane1=document.createElement("span");
+    divelement.append(spane1);
+
+    let anger1=document.createElement("a");
+    anger1.classList.add("pagination");
+    anger1.setAttribute("id","result")
+    anger1.innerText="home";
+    anger1.addEventListener("click",(()=>{
+        document.getElementById("result").href="pagehome.html";
+    }))
+    spane1.append(anger1);
+//2
+    let spane2=document.createElement("span");
+    divelement.append(spane2);
+
+    let anger2=document.createElement("a");
+    anger2.classList.add("pagination");
+    anger2.setAttribute("id","result1")
+    anger2.innerText="1";
+    anger2.addEventListener("click",(()=>{
+        document.getElementById("result1").href="page1.html";
+    }))
+    spane2.append(anger2);
+//3
+    let spane3=document.createElement("span");
+    divelement.append(spane3);
+
+    let anger3=document.createElement("a");
+    anger3.classList.add("pagination");
+    anger3.setAttribute("id","result2")
+    anger3.innerText="2";
+    anger3.addEventListener("click",(()=>{
+        document.getElementById("result2").href="page2.html";
+    }))
+    spane3.append(anger3);
+//4
+    let spane4=document.createElement("span");
+    divelement.append(spane4);
+
+    let anger4=document.createElement("a");
+    anger4.classList.add("pagination");
+    anger4.setAttribute("id","result3")
+    anger4.innerText="3";
+    anger4.addEventListener("click",(()=>{
+        document.getElementById("result3").href="page3.html";
+    }))
+    spane4.append(anger4);
+//last
+    let spane5=document.createElement("span");
+    divelement.append(spane5);
+
+    let anger5=document.createElement("a");
+    anger5.classList.add("pagination");
+    anger5.setAttribute("id","resultlast")
+    anger5.innerText="last";
+    anger5.addEventListener("click",(()=>{
+        document.getElementById("resultlast").href="pagelast.html";
+    }))
+    spane5.append(anger5);
+</script>
+</body>
+</html>
