@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="country">country Name</label>
+    <input type="text" id="country" >
+    <script>
+        let a=document.getElementById("country");
+        let buttonelement=document.createElement("button");
+        buttonelement.innerText="university list";
+        buttonelement.addEventListener("click",async()=>{
+            let countrys=await fetch(`http://universities.hipolabs.com/search?country=${a.value}`);
+            let list=await countrys.json();
+            
+            let headingelement=document.createElement("h3");
+            headingelement.setAttribute("style","text-align:center")
+            headingelement.innerText=`${a.value} UNIVERSITY LIST`;
+            
+
+            let Telement=document.createElement("table");
+     Telement.setAttribute("style","margin:10px;padding:10px","border:1px solid black;border-collapse:collapse");
+      
+     let theadelement=document.createElement("thead");
+
+     let tr1element=document.createElement("tr");
+     theadelement.append(tr1element);
+
+     let headers=["alpha_two_code","country","name","web_pages"];
+     headers.forEach((element)=>{
+       let th1=document.createElement("th");
+       th1.setAttribute("style","border:1px solid black;border-collapse:collapse");
+       th1.innerText=element;
+       tr1element.append(th1)
+        }
+        );
+       
+        let tbodyelement=document.createElement("tbody");
+        list.forEach(element => {
+            //    console.log(element.name);
+            //     console.log(element.web_pages);
+            //     console.log(element.name);
+            //     console.log(element.alpha_two_code);
+            // })
+            let tr2=document.createElement("tr");
+            
+              
+            let td1=document.createElement("td");
+            td1.setAttribute("style","border:1px solid black;border-collapse:collapse");
+            td1.innerText=element.alpha_two_code;
+            
+
+            let td2=document.createElement("td");
+            td2.setAttribute("style","border:1px solid black;border-collapse:collapse");
+            td2.innerText=element.country;
+            
+            let td3=document.createElement("td");
+            td3.setAttribute("style","border:1px solid black;border-collapse:collapse");
+            td3.innerText=element.name;
+
+            let td4=document.createElement("td");
+            td4.setAttribute("style","border:1px solid black;border-collapse:collapse");
+            td4.innerText=element.web_pages;
+
+            tr2.append(td1,td2,td3,td4);
+            tbodyelement.append(tr2);
+     })
+     Telement.append(theadelement,tbodyelement);
+     document.body.append(headingelement,Telement);
+    });
+     document.body.append(buttonelement);
+    
+    </script>
+</body>
+</html>
