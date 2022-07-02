@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>do you want to know your city temperature??</h1>
+    <input type="text" id="inp" />
+    <script>
+       
+        let apikey="70d0b45f258b0119bfe407dc9443aeb0";
+        let url="https://api.openweathermap.org/data/2.5/weather?q=";
+      
+      
+
+        let cityname= document.getElementById("inp");
+        
+
+        
+        let btn =document.createElement("button");
+          btn.setAttribute("type","button");
+            btn.innerText="getweather";
+            
+
+
+        let getweather=async()=>{
+            let response=await fetch(`${url}${cityname.value}&appid=${apikey}`);
+            let data=await response.json();
+            let main=data.main;
+            
+            let tempicon=document.createElement("p");
+             tempicon.innerText=`feels_like:${main.feels_like}`+","+`humidity:${ main.humidity}`+","+ `pressure:${main.pressure}`+","+`temp:${main.temp}`+","+`temp_max:${ main.temp_max}`+","+`temp_min:${ main.temp_min}`;
+             tempicon.style.color="green";
+             tempicon.style.border="3px solid black";
+             tempicon.style.background="yellow";
+             tempicon.style.margin="10px";
+             tempicon.style.padding="20px";
+             if(main.temp<300){
+                tempicon.style.background="lightblue";
+             }
+             document.body.append(tempicon);
+        }
+      
+
+        btn.addEventListener("click",getweather);
+        document.body.append(btn);
+    </script>
+    
+</body>
+</html>
