@@ -1,0 +1,52 @@
+
+.body{
+  background-color: powderblue;
+}
+   .parent{
+    display: flex;
+    flex-wrap:wrap;
+    text-align: center;
+  
+    
+    
+ }
+ .child{
+    background-color: powderblue;
+     border:1px solid black;
+     height: 100px;
+     color:black;
+     font-size:smaller;
+     min-width:24%;
+     height: 350px;
+     text-align: center;
+     margin:30px;
+ }
+ .heading{
+  background-color: white;
+  color:rgb(14, 39, 39);
+  margin:10px;
+ }
+ .button{
+  padding:5px;
+  background-color: blue;
+  color:aliceblue;
+  font-size: larger;
+ }
+ .li{
+  padding:5px;
+ }
+ li:hover{
+  color:black;
+  font-size: larger;
+ }
+ .img{
+  width:70%;
+  height: 400px;
+  object-fit: cover;
+  margin-top:5%;
+  margin-left: 10%;
+  margin-right: 10%;
+ }
+ .quotes{
+  font-family: 'Roboto Condensed', sans-serif;
+ }
